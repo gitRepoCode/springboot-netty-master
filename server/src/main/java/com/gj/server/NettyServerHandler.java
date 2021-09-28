@@ -14,6 +14,10 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
     /**
      * 客户端连接会触发
      */
+    public  static int count = 0;
+    public  synchronized void add(){
+        count++;
+    }
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("Channel active......");
@@ -24,7 +28,8 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        log.info("服务器收到消息: {}", msg.toString());
+        add();
+        log.info("服务器收到消息: {}", msg.toString() + count);
         ctx.write("你也好哦\n");
         ctx.flush();
     }
