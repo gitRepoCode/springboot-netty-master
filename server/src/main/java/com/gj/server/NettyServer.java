@@ -9,6 +9,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author Gjing
@@ -18,6 +20,10 @@ import java.net.InetSocketAddress;
 @Slf4j
 public class NettyServer {
     public void start(InetSocketAddress socketAddress) {
+//        Timestamp time2 = new Timestamp(1734581141);
+//        System.out.println("Date:" + new Date());
+//        System.out.println("new Date().getTime():" + new Date().getTime());
+//        System.out.println("时间戳：" + time2);
         //new 一个主线程组
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         //new 一个工作线程组
