@@ -13,11 +13,6 @@ public class MyDecoder extends ByteToMessageDecoder {
         byte[] b = new byte[byteBuf.readableBytes()];
         //复制内容到字节数组b
         byteBuf.readBytes(b);
-        //字节数组转字符串
-        String str = new String(b);
-
-        // System.out.println(str);
-
         list.add(bytesToHexString(b));
     }
 
